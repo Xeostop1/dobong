@@ -87,7 +87,7 @@ public class MemberDTO {
 	public void setAdmin(String admin) {
 		this.admin = admin;
 	}
-	
+	//DB admin 변경
 	
 	@Override
 	public String toString() {
