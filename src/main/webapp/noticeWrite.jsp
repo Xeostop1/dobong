@@ -23,7 +23,7 @@
 					<form action="NoticeWriteServlet" method="post">
 						<c:if test="${!empty loginUser.id }">
 							<tr> 
-								<td><input value="${loginUser.id }" name="id" placeholder="id를 적어주세요"></td> 
+								<td><input value="${loginUser.id }" name="id"></td> 
 							</tr>
 						</c:if>
 						<!-- <tr> 

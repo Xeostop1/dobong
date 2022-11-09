@@ -28,17 +28,18 @@ public class NoticeWriteServlet extends HttpServlet {
 		System.out.println("NoticeWriteServlet POST");
 		request.setCharacterEncoding("utf-8");
 		String id=request.getParameter("id");
-		String password=request.getParameter("password");
+		System.out.println("*****"+id);
+		//String password=request.getParameter("password");
 		String title=request.getParameter("title");
 		String content=request.getParameter("content");
 		
 		//페이지에서 받아온 값을 객체에 넣어줌
 		NoticeDTO n=new NoticeDTO();
 		n.setId(id);
-		n.setPassword(password);
+		//n.setPassword(password);
 		n.setTitle(title);
 		n.setContent(content);
-		System.out.println("************"+n);
+		
 	
 		NoticeDAO nDAO=NoticeDAO.getInstance();
 		int result=nDAO.insertNoice(n);

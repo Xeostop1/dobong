@@ -25,14 +25,17 @@
 						<td colspan="4"> ${content.getContent() }</td>
 						<td>${content.getWritingtime() }</td>
 						<c:if test="${!empty loginUser.id }">
+							<input type="hidden" value="${loginUser.id }" name="id">
 							<td>${loginUser.id}</td>
 							<td>
-								<a href="NoticeUpdateServlet?number=${noticeList.getNumber()}"> 
+							<!-- content/num을 가져가야함 get -->
+								<a href="NoticeUpdateServlet?number=${content.getNumber()}"> 
 									<input type="button" value="수정">
 								</a>
 							</td>
 							<td>
 								<input type="hidden" value=${content.getNumber() }>
+								<input type="text" value=${content.getId() }>
 								<a href="NoticeDeleteServlet?number=${content.getNumber() }">
 									<input type="button" value="삭제">
 								</a>

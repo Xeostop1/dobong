@@ -119,7 +119,7 @@ public class NoticeDAO {
 	//============================
 	public int insertNoice(NoticeDTO n) {
 		//추가항목 5개
-		int result=-1;	//이걸 꼭 해줘야하네 왜지???? 
+		int result=-1;	//이걸 꼭 해줘야하네 왜지????
 		String sql="insert into notice (nickname, title, content, writingtime)"
 				+ "values(?, ?, ?, ?)";
 		Connection conn=null;
@@ -176,15 +176,16 @@ public class NoticeDAO {
 	//  공지사항 수정(update)
 	//============================
 	public void updateNoice(NoticeDTO DTO) {
-		String sql="update notice set title=?, content=? where number=?";
+		String sql="update notice set nickname=?, title=?, content=?  where number=?";
 		Connection conn=null;
 		PreparedStatement pstmt=null;
 		try {
 			conn=getConn();
 			pstmt=conn.prepareStatement(sql);
-			pstmt.setString(1, DTO.getTitle());
-			pstmt.setString(2, DTO.getContent());
-			pstmt.setString(3, DTO.getNumber());
+			pstmt.setString(1, DTO.getNickname());
+			pstmt.setString(2, DTO.getTitle());
+			pstmt.setString(3, DTO.getContent());
+			pstmt.setString(4, DTO.getNumber());
 			pstmt.executeUpdate();
 		} catch (Exception e) {
 			System.out.println("updateNoice() sql 접속오류: "+e);

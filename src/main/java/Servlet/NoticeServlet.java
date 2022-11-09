@@ -52,11 +52,14 @@ public class NoticeServlet extends HttpServlet {
 //		System.out.println("총페이지: "+nOfPage);
 //		System.out.println("전체자료수 "+row);
 		//System.out.println("마지막 페이지 자료: "+ row%recordsPerPage);
-		
+	
 		
 		RequestDispatcher dis=request.getRequestDispatcher("notice.jsp");
+		RequestDispatcher dis2=request.getRequestDispatcher("noticeUpdate.jsp");
 		//여기에서 jsp을 보내준다!
 		dis.forward(request, response);
+		dis2.forward(request, response);
+		
 	}
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
