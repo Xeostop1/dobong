@@ -16,20 +16,19 @@
 				
 			}
 			table{
-			width:70%
+			width:70%;
 				text-align:center;
 				margin:0 auto;
-				
 			}
 			
 			body{
-				width:99%
+				width:99%;
 				text-align:center;
 				margin:0 auto;
 				
 			}
 			#write_btn:after{
-				content:""
+				content:"";
 				display:block;
 				clear:both;
 			}
@@ -37,13 +36,14 @@
 		</style>
 	</head>
 	<body>
-	  <h1>${loginUser.name }님 안녕하세요 </h1> 
-	  <h1>아이디: ${loginUser.id } </h1>
-  		<form action="LogoutServlet" method="get">
-			<input type="submit" value="로그아웃">
-		</form>
-		<a href="RegisterUpdateServlet?id=${loginUser.id }">회원정보수정</a> 
-		
+		<c:if test="${!empty loginUser.id }">
+		  <h1>${loginUser.name }님 안녕하세요 </h1> 
+	  		<form action="LogoutServlet" method="get">
+				<input type="submit" value="로그아웃">
+			</form>
+			<a href="RegisterUpdateServlet?id=${loginUser.id }">회원정보수정</a><br> 
+		</c:if>
+	
 		<table border="1" style="text-align: center;">
 		<thead>
 			<tr>
@@ -56,8 +56,9 @@
 					<c:forEach items="${changeNotice }" var="changeNotice">
 						<tr>
 							<td>${changeNotice.getNumber() }</td>
-							<td> <a href="NoticeContentServlet?number=${changeNotice.getNumber()}"> ${changeNotice.getTitle() }</a></td> 
-							<!-- <td>${noticeList.getContent() }</td> -->
+							<td> 
+								<a href="NoticeContentServlet?number=${changeNotice.getNumber()}"> ${changeNotice.getTitle() }</a>
+							</td> 
 							<td>${changeNotice.getNickname() }</td>
 							<td>${changeNotice.getWritingtime() }</td>
 						</tr>

@@ -22,19 +22,24 @@
 	<body>
 		<!--여기서는 페이지별로 보여주기-->
 		<jsp:include page="loginPage.jsp"></jsp:include>
-		<table>
+		<table border="1" style="text-align: center;">
+			<thead>
+				<tr>
+					<th>번호</th>
+					<th >제목</th>
+					<th>작성자</th>
+					<th>작성일</th>
+				</tr>
+			</thead>
 			<c:forEach items="${data }" var="data">
-					<tr>
-						<td>${data.getNumber() }</td>
-						<td> <a href="NoticeContentServlet?number=${data.getNumber()}"> ${data.getTitle() }</a></td>
-						<td>${data.getContent() }</td>
-						<td>${data.getWritingtime() }</td>
-						<!-- <td><a href="NoticeUpdateServlet?number=${data.getNumber()}"> 
-							<input type="button" value="수정">
-							</a> -->
-						</td>
-					</tr>
-				</c:forEach>
+				<tr>
+					<td>${data.getNumber() }</td>
+					<td> <a href="NoticeContentServlet?number=${data.getNumber()}"> ${data.getTitle() }</a></td> 
+					<!-- <td>${noticeList.getContent() }</td> -->
+					<td>${data.getNickname() }</td>
+					<td>${data.getWritingtime() }</td>
+				</tr>
+			</c:forEach>
 		</table>
 		<form action="NoticePageServlet" method="get">
 			<input type="hidden" name="currentPage" value="1">

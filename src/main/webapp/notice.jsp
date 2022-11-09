@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=utf-8"
+    pageEncoding="utf-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 	<html>
@@ -10,23 +10,18 @@
 			a{
 			 text-decoration:none;
 			}
-			
 			html{
 				width:100%;
-				
 			}
 			table{
 			width:70%;
 				text-align:center;
 				margin:0 auto;
-				
 			}
-			
 			body{
 				width:99%;
 				text-align:center;
 				margin:0 auto;
-				
 			}
 			#write_btn:after{
 				content:"";
@@ -38,12 +33,7 @@
 	</head>
 	<body>
 		<c:if test="${!empty loginUser.id }">
-		  <h1>${loginUser.name }님 안녕하세요 </h1> 
-		<!--   <h1>아이디: ${loginUser.id } </h1> -->
-	  		<form action="LogoutServlet" method="get">
-				<input type="submit" value="로그아웃">
-			</form>
-			<a href="RegisterUpdateServlet?id=${loginUser.id }">회원정보수정</a> 
+		 <jsp:include page="loginPage.jsp"></jsp:include> 
 		</c:if>
 		<br>
 		<table border="1" style="text-align: center;">
