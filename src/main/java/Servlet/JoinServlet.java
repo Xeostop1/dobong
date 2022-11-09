@@ -40,7 +40,7 @@ public class JoinServlet extends HttpServlet {
 		String tos1;//=request.getParameter("tos1");
 		String tos2;//=request.getParameter("tos2");
 		String meter=request.getParameter("meter");
-		String category;
+		int category=0;
 		System.out.println(name);
 		
 		
@@ -68,9 +68,7 @@ public class JoinServlet extends HttpServlet {
 		}
 		
 		//====회원 등급 일반회원 0, 관리자 1으로 세팅 이후 관리자페이지에서 변경====
-		String general="0";
-		category=general;
-		
+
 		
 		//멤버정보 객체에 정보넣기
 		m.setId(id);

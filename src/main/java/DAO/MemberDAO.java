@@ -67,7 +67,7 @@ public class MemberDAO {
 				pstmt.setString(7, m.getAddress());
 				pstmt.setString(8, m.getTos1());
 				pstmt.setString(9, m.getTos2());
-				pstmt.setString(10, m.getAdmin());
+				pstmt.setInt(10, m.getAdmin());	//수정 체크
 				pstmt.setString(11, m.getMeter());
 				result=pstmt.executeUpdate();
 			} catch (Exception e) {
@@ -142,7 +142,7 @@ public class MemberDAO {
 					m.setAddress(rs.getString("address"));
 					m.setTos1(rs.getString("tos1"));
 					m.setTos2(rs.getString("tos2"));
-					m.setAdmin(rs.getString("0"));
+					m.setAdmin(rs.getInt(0));		//수정 확인
 					m.setMeter(rs.getString("meter"));
 					
 				}
@@ -177,5 +177,61 @@ public class MemberDAO {
 				MemberDAO.close(conn, pstmt);
 			}
 		}
+		//=====================		
+				//  관리자용 회원정보 조회
+				//=====================
+				public ArrayList<MemberDTO> getAllMember() {
+					ArrayList<MemberDTO> mList=new ArrayList<>();
+					MemberDTO m=null;
+					Connection conn=null;
+					PreparedStatement pstmt=null;
+					ResultSet rs=null;
+					String sql="select * from register";
+					try {
+						conn=getConn();
+						pstmt=conn.prepareStatement(sql);
+						rs=pstmt.executeQuery();
+						while(rs.next()) {
+							m=new MemberDTO();
+							m.setNumber(rs.getInt("number"));
+							m.setId(rs.getString("id"));
+							m.setNickname(rs.getString("nickname"));
+							m.setName(rs.getString("name"));
+							m.setPassword(rs.getString("password"));
+							m.setPhone(rs.getString("phone"));
+							m.setEmail(rs.getString("email"));
+							m.setAddress(rs.getString("address"));
+							m.setTos1(rs.getString("tos1"));
+							m.setTos2(rs.getString("tos2"));
+							m.setMeter(rs.getString("meter"));
+							m.setAdmin(rs.getInt("admin"));
+							mList.add(m);
+						}
+					}catch(Exception e) {
+						System.out.println("getAllMember() 실행중 오류발생 : "+e);
+					}finally {
+						MemberDAO.close(conn, pstmt, rs);
+					}
+					return mList;
+				}
+				public int changeAdmin(String id,int admin) {
+					int result=0;
+					Connection conn=null;
+					PreparedStatement pstmt=null;
+					String sql="update register set admin=? where id=?";
+
+					try {
+						conn=getConn();
+						pstmt=conn.prepareStatement(sql);
+						pstmt.setInt(1, admin);
+						pstmt.setString(2, id);
+						pstmt.executeUpdate();
+					}catch(Exception e) {
+						System.out.println("changeAdmin() 실행중 오류발생 : "+e);
+					}finally {
+						MemberDAO.close(conn, pstmt);
+					}
+					return result;
+				}
 		
 }//c

@@ -12,7 +12,7 @@ public class MemberDTO {
 	
 	private	String tos1;
 	private	String tos2;
-	private String admin;
+	private int admin;
 	private String meter;
 	
 	public int getNumber() {
@@ -81,10 +81,10 @@ public class MemberDTO {
 	public void setMeter(String meter) {
 		this.meter = meter;
 	}
-	public String getAdmin() {
+	public int getAdmin() {
 		return admin;
 	}
-	public void setAdmin(String admin) {
+	public void setAdmin(int admin) {
 		this.admin = admin;
 	}
 	//DB admin 변경
