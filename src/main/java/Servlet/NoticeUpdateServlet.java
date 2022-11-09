@@ -43,11 +43,13 @@ public class NoticeUpdateServlet extends HttpServlet {
 		String number=request.getParameter("number");
 		String title=request.getParameter("title");
 		String content=request.getParameter("content");
+		String id=request.getParameter("id");
 		
 		NoticeDTO dto=new NoticeDTO();
 		dto.setNumber(number);
 		dto.setTitle(title);
 		dto.setContent(content);
+		dto.setNickname(id);
 		NoticeDAO dao=NoticeDAO.getInstance();
 		dao.updateNoice(dto);
 		response.sendRedirect("NoticeServlet");	//바로 리스트 서블렛으로 이동 

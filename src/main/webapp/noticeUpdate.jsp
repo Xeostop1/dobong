@@ -8,8 +8,9 @@
 	</head>
 	<body>
 		<h1>게시글 수정페이지</h1>
+		<input type="hidden" name="number" value="${noticeList.getNumber() }">
 		<form action="NoticeUpdateServlet" method="post">
-			<input type="hidden" name="number" value="${noticeList.getNumber() }">
+			<input type="hidden" value="${loginUser.id }">
 			<table>
 				<tr>
 					<th>타이틀</th>

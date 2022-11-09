@@ -129,7 +129,7 @@ public class NoticeDAO {
 			conn=getConn();
 			pstmt=conn.prepareStatement(sql);
 			
-			//pstmt.setString(1, n.getNumber());
+			//pstmt.setString(1, n.getId());
 			pstmt.setString(1, n.getNickname());
 			pstmt.setString(2, n.getTitle());
 			pstmt.setString(3, n.getContent());

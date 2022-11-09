@@ -39,8 +39,7 @@
 	<body>
 	  <h1>${loginUser.name }님 안녕하세요 </h1> 
 	  <h1>아이디: ${loginUser.id } </h1>
-	  <h1>add: ${loginUser.address } </h1>
-		<form action="LogoutServlet" method="get">
+  		<form action="LogoutServlet" method="get">
 			<input type="submit" value="로그아웃">
 		</form>
 		<!-- if처리 loginUser.id가 !null이라면 나타나야함 -->
@@ -52,20 +51,19 @@
 			<tr>
 				<th>번호</th>
 				<th >제목</th>
+				<th>작성자</th>
 				<th>작성일</th>
-				<th>수정</th>
 			</tr>
 			</thead>
+			
 			<c:forEach items="${noticeList }" var="noticeList">
 					<tr>
 						<td>${noticeList.getNumber() }</td>
 						<td> <a href="NoticeContentServlet?number=${noticeList.getNumber()}"> ${noticeList.getTitle() }</a></td> 
 						<!-- <td>${noticeList.getContent() }</td> -->
+						<td>${noticeList.getNickname() }</td>
 						<td>${noticeList.getWritingtime() }</td>
-						<td><a href="NoticeUpdateServlet?number=${noticeList.getNumber()}"> 
-							<input type="button" value="수정">
-							</a>
-						</td>
+						
 					</tr>
 				</c:forEach>
 				<tfoot>

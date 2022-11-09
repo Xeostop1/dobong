@@ -38,10 +38,11 @@ public class NoticeWriteServlet extends HttpServlet {
 		n.setPassword(password);
 		n.setTitle(title);
 		n.setContent(content);
-		System.out.println(n);
+		System.out.println("************"+n);
 	
 		NoticeDAO nDAO=NoticeDAO.getInstance();
 		int result=nDAO.insertNoice(n);
+		
 		
 		//request.setAttribute("check", "글쓰기 완료");
 		

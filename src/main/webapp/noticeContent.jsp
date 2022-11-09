@@ -13,19 +13,31 @@
 		</style>
 	</head>
 	<body>
-	<h1>내용물 확인페이지</h1>
+	<h1>내용 확인페이지</h1>
 		   
 		 <table>
-				<th>내용 </th>
-					<tr>
-						<td>${content.getNumber() }</td> 
+				<th colspan="3">내용 </th>
+				<th colspan="2">작성일자 </th>
+				<th colspan="1">글쓴이 </th>
+				<th>수정 </th>
+				<th>삭제 </th>
+					<tr> 
 						<td colspan="4"> ${content.getContent() }</td>
 						<td>${content.getWritingtime() }</td>
-						<td>
-							<a href="NoticeDeleteServlet?number=${content.getNumber() }">
-								<input type="button" value="삭제">
-							</a>
-						</td>
+						<c:if test="${!empty loginUser.id }">
+							<td>${loginUser.id}</td>
+							<td>
+								<a href="NoticeUpdateServlet?number=${noticeList.getNumber()}"> 
+									<input type="button" value="수정">
+								</a>
+							</td>
+							<td>
+								<input type="hidden" value=${content.getNumber() }>
+								<a href="NoticeDeleteServlet?number=${content.getNumber() }">
+									<input type="button" value="삭제">
+								</a>
+							</td>
+						</c:if>
 					</tr>
 		</table>
 		<br>

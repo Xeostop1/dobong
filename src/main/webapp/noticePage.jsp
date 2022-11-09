@@ -29,9 +29,9 @@
 						<td> <a href="NoticeContentServlet?number=${data.getNumber()}"> ${data.getTitle() }</a></td>
 						<td>${data.getContent() }</td>
 						<td>${data.getWritingtime() }</td>
-						<td><a href="NoticeUpdateServlet?number=${data.getNumber()}"> 
+						<!-- <td><a href="NoticeUpdateServlet?number=${data.getNumber()}"> 
 							<input type="button" value="수정">
-							</a>
+							</a> -->
 						</td>
 					</tr>
 				</c:forEach>
@@ -49,7 +49,7 @@
 			<c:forEach begin="1" end="${nOfPage }" var="i">
 				<c:choose>
 					<c:when test="${currentPage == i }">	<!--test: 비교연산자 사용하는곳 조건값  -->
-						<li> <a>${i }{현재)</a> </li>
+						<li> <a>${i }(현재)</a> </li>
 					</c:when> 
 				<c:otherwise>
 					<li> <a href="NoticePageServlet?currentPage=${i }&recordsPerPage=${recordsPerPage}&number=0">${i }</a> </li>
