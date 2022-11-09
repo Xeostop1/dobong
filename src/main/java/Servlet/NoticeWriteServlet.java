@@ -35,8 +35,9 @@ public class NoticeWriteServlet extends HttpServlet {
 		
 		//페이지에서 받아온 값을 객체에 넣어줌
 		NoticeDTO n=new NoticeDTO();
-		n.setId(id);
+		n.setNickname(id);
 		//n.setPassword(password);
+		
 		n.setTitle(title);
 		n.setContent(content);
 		

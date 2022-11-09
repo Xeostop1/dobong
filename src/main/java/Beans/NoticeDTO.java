@@ -1,9 +1,7 @@
 package Beans;
 
-import java.util.Date;
-
 public class NoticeDTO {
-	private String id;
+	//private String id;
 	private String number;
 	private String nickname;
 	private String title;
@@ -12,12 +10,12 @@ public class NoticeDTO {
 	
 	
 	
-	public String getId() {
-		return id;
-	}
-	public void setId(String id) {
-		this.id = id;
-	}
+//	public String getId() {
+//		return id;
+//	}
+//	public void setId(String id) {
+//		this.id = id;
+//	}
 	public String getNumber() {
 		return number;
 	}
@@ -48,16 +46,10 @@ public class NoticeDTO {
 	public void setWritingtime(String writingtime) {
 		this.writingtime = writingtime;
 	}
-//	public String getChangetime() {
-//		return changetime;
-//	}
-//	public void setChangetime(String changetime) {
-//		this.changetime = changetime;
-//	}
-//	
+
 	@Override
 	public String toString() {
-		return "NoticeDTO [id=" + id  + ", number=" + number + ", nickname=" + nickname
+		return "NoticeDTO [ number=" + number + ", nickname=" + nickname
 				+ ", title=" + title + ", content=" + content + ", writingtime=" + writingtime
 				+ "]";
 	}

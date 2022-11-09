@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 		<head>
@@ -8,22 +9,18 @@
 	</head>
 	<body>
 		<h1>게시글 수정페이지</h1>
-		<input type="hidden" name="number" value="${updateNotice.getNumber() }">
-		
-		
-		
-		
 		
 		<form action="NoticeUpdateServlet" method="post">
-			<input name="id" type="hidden" value="${loginUser.id}">
-			<input name="nickname" type="type" value="${updateNotice.getNickname()}">
-			<input name="writingtime" type="type" value="${updateNotice.getWritingtime()}">
+			넘버: <input name="number"  type="text"  value="${updateNotice.getNumber() }">
+			아이디: <input name="nickname" type="text" value="${loginUser.id}">
+			<!-- <input name="nickname" type="hidden" value="${updateNotice.getNickname()}"> -->
+			<input name="writingtime" type="hidden" value="${updateNotice.getWritingtime()}">
 			
 			<table>
 				<tr>
 					<th>타이틀</th>
 					<td>
-						<input type="text" name="title" value="${updateNotice.getTitle() }">
+						<input name="title" value="${updateNotice.getTitle() }">
 					</td>
 				</tr>
 				<tr>
@@ -36,9 +33,8 @@
 				</tr>
 			</table>
 			<input type="submit" value="수정하기">
-			<input type="reset" value="다시작성">
-			<input type="reset" value="목록보기" onclick="loction.href='NoticeServlet'">
 		</form>
-		
+		<input type="reset" value="다시작성">
+		<a href="NoticeServlet"> <input type="button" value="목록보기"></a>
 	</body>
 </html>

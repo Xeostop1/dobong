@@ -30,7 +30,7 @@
 							<td> <input type="text" name="password" placeholder="비밀번호를 적어주세요"></td> 
 						</tr> -->
 						<tr> 
-							<td> <input type="text" name="title" placeholder="제목"></td> 
+							<td> <input name="title" placeholder="제목"></td> 
 						</tr>
 						<tr> 
 							<td> <textarea name="content"></textarea></td> 

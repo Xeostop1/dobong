@@ -50,7 +50,7 @@ public class NoticeUpdateServlet extends HttpServlet {
 		
 		
 		NoticeDTO dto=new NoticeDTO();
-		dto.setId(nickname);
+//		dto.setId(nickname);
 		dto.setNumber(number);
 		dto.setTitle(title);
 		dto.setContent(content);

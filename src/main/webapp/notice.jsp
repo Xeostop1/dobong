@@ -16,20 +16,20 @@
 				
 			}
 			table{
-			width:70%
+			width:70%;
 				text-align:center;
 				margin:0 auto;
 				
 			}
 			
 			body{
-				width:99%
+				width:99%;
 				text-align:center;
 				margin:0 auto;
 				
 			}
 			#write_btn:after{
-				content:""
+				content:"";
 				display:block;
 				clear:both;
 			}
@@ -39,13 +39,13 @@
 	<body>
 		<c:if test="${!empty loginUser.id }">
 		  <h1>${loginUser.name }님 안녕하세요 </h1> 
-		  <h1>아이디: ${loginUser.id } </h1>
+		<!--   <h1>아이디: ${loginUser.id } </h1> -->
 	  		<form action="LogoutServlet" method="get">
 				<input type="submit" value="로그아웃">
 			</form>
 			<a href="RegisterUpdateServlet?id=${loginUser.id }">회원정보수정</a> 
 		</c:if>
-		
+		<br>
 		<table border="1" style="text-align: center;">
 		<thead>
 			<tr>

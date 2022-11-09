@@ -21,11 +21,9 @@ public class NoticeContentServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {		
 		request.setCharacterEncoding("utf-8");
 		String number=request.getParameter("number");
-		System.out.println("NoticeContentServlet() Get"+number);
 		NoticeDAO DAO=NoticeDAO.getInstance();
 		NoticeDTO DTO=DAO.selectContent(number);
-		System.out.println("데이터 확인"+DTO.getNumber());
-		
+		System.out.println("*********콘텐트 dto"+DTO);
 		request.setAttribute("content", DTO);
 		RequestDispatcher dis=request.getRequestDispatcher("noticeContent.jsp");
 		dis.forward(request, response);

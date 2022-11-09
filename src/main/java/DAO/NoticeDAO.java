@@ -129,11 +129,9 @@ public class NoticeDAO {
 			conn=getConn();
 			pstmt=conn.prepareStatement(sql);
 			
-			//pstmt.setString(1, n.getId());
 			pstmt.setString(1, n.getNickname());
 			pstmt.setString(2, n.getTitle());
 			pstmt.setString(3, n.getContent());
-//			pstmt.setString(5, n.getWritingtime());		//Date타입으로 넣기위해 캐스팅 확인!
 			pstmt.setString(4, NoticeDAO.getDate());
 			result=pstmt.executeUpdate();
 		} catch (Exception e) {
